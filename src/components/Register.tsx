@@ -10,11 +10,16 @@ function Register() {
 
     const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
-        await userApi.registerUser(formData)
-            .then((response) => {
+        await userApi.registerUser(formData).then(async (response) => {
+            if (response.token) {
                 localStorage.setItem("token", response.token)
-                navigate("/welcome")
-                setFormData({username: "", password: ""})
+                await userApi.validateUserToRootEndpoint()
+                    .then((validationResponse) => {
+                        console.log(validationResponse.message)
+                        navigate("/welcome", {state: {message: validationResponse.message}});
+                    })
+                    .catch(err => setError(err.message || 'Auth failed. Please try again.'))
+            }
             })
             .catch(err => setError(err.message || 'Login failed. Please try again.'));
     }

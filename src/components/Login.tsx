@@ -10,10 +10,15 @@ function Login() {
 
     const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
         evt.preventDefault()
-        await userApi.loginUser(credentials).then(response => {
+        await userApi.loginUser(credentials).then(async (response) => {
             if (response.token) {
                 localStorage.setItem("token", response.token)
-                navigate("/welcome")
+                await userApi.validateUserToRootEndpoint()
+                    .then((validationResponse) => {
+                        console.log(validationResponse.message)
+                        navigate("/welcome", {state: {message: validationResponse.message}});
+                    })
+                    .catch(err => setError(err.message || 'Auth failed. Please try again.'))
             }
         })
             .catch(err => setError(err.message || 'Login failed. Please try again.'));
