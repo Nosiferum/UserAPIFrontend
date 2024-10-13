@@ -7,7 +7,10 @@ function UserForm() {
     const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
         await userApi.registerUser(formData)
-            .then(() => setFormData({username: "", password: ""}))
+            .then((response) => {
+                localStorage.setItem("token", response.token)
+                setFormData({username: "", password: ""})
+            })
             .catch(err => console.log(err.message));
     }
 
