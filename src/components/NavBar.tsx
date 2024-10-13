@@ -4,14 +4,12 @@ import "./NavBar.css"
 function NavBar(){
     return (
         <nav className="navbar">
-            <ul>
-                <li>
+            <div className="navbar-container">
+                <div className="navbar-links">
                     <Link to="/login">Login</Link>
-                </li>
-                <li>
                     <Link to="/register">Register</Link>
-                </li>
-            </ul>
+                </div>
+            </div>
         </nav>
     )
 }
