@@ -31,22 +31,26 @@ function Register() {
             {error && <div className="error-message">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <h1>Username is: {formData.username} and password is: {formData.password}</h1>
-                <label htmlFor="username">Username</label>
-                <input type="text"
-                       placeholder="username"
-                       name="username"
-                       id="username"
-                       onChange={handleChange}
-                       value={formData.username}
-                />
-                <label htmlFor="password">Password</label>
-                <input type="text"
-                       placeholder="password"
-                       name="password"
-                       id="password"
-                       onChange={handleChange}
-                       value={formData.password}
-                />
+                <div>
+                    <label htmlFor="username">Username</label>
+                    <input type="text"
+                           placeholder="username"
+                           name="username"
+                           id="username"
+                           onChange={handleChange}
+                           value={formData.username}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <input type="text"
+                           placeholder="password"
+                           name="password"
+                           id="password"
+                           onChange={handleChange}
+                           value={formData.password}
+                    />
+                </div>
                 <button>Sign up</button>
             </form>
         </div>
