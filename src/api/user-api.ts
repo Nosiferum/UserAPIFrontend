@@ -33,4 +33,18 @@ const loginUser = async (userData: any) => {
     }
 }
 
-export default {registerUser, loginUser};
+const validateUserToRootEndpoint = async () => {
+    try {
+        const token = localStorage.getItem("token");
+        const response = await userApi.get('/', {headers: {Authorization: `Bearer ${token}`}});
+        return response.data;
+    } catch (error: any) {
+        if (error.response && error.response.data) {
+            throw new Error(error.response.data.message || error.response.data.error || 'Auth failed');
+        } else {
+            throw new Error('Something went wrong');
+        }
+    }
+}
+
+export default {registerUser, loginUser, validateUserToRootEndpoint};
