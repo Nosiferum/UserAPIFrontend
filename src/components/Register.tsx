@@ -27,10 +27,9 @@ function Register() {
 
     return (
         <div className="register-form">
-            <h1>Register</h1>
+            <h2>Register</h2>
             {error && <div className="error-message">{error}</div>}
             <form onSubmit={handleSubmit}>
-                <h1>Username is: {formData.username} and password is: {formData.password}</h1>
                 <div>
                     <label htmlFor="username">Username</label>
                     <input type="text"

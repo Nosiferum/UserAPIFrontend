@@ -5,6 +5,7 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .login-page h2 {
@@ -20,11 +21,22 @@
     margin-bottom: 1rem;
 }
 
+.login-page label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
 .login-page input {
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.register-form input:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 .login-page button {
@@ -37,8 +49,12 @@
     cursor: pointer;
 }
 
+.login-page button:hover {
+    background-color: #0056b3;
+}
+
 .error-message {
-    color: #d9534f;
+    color: #e70c0c;
     background-color: #f2dede;
     border: 1px solid #ebccd1;
     border-radius: 4px;
