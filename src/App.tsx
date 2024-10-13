@@ -1,9 +1,11 @@
 import './App.css'
+import UserForm from "./components/UserForm.tsx";
 
 function App() {
 
   return (
     <>
+      <UserForm/>
 
     </>
   )
