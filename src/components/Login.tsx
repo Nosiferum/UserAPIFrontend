@@ -53,7 +53,7 @@ function Login() {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit">Sign in</button>
             </form>
         </div>
     )
